@@ -68,6 +68,24 @@ app.put("/books/:id",(req,res)=>{
     res.send(db.books[bookIndex]);
 })
 
+// delete book by the id
+app.delete("/books/:id", (req, res) => {
+    const db = readDB();
+    const { id } = req.params;
+
+    const bookIndex = db.books.findIndex((el) => el.id == id);
+
+    if (bookIndex === -1) {
+        return res.status(404).send({ message: "Book not found" });
+    }
+
+    const deletedBook = db.books.splice(bookIndex, 1)[0];
+    writeDB(db);
+
+    res.send({ message: "Book deleted successfully", deletedBook });
+});
+
+
 // start server
 const PORT = process.env.PORT || 4000;
 
