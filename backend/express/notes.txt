@@ -1,0 +1,17 @@
+Express is a framework built on top of NodeJS
+it makes building servers and api's much easier compared to using only node's bulid-in http module
+
+
+why use Express
+
+less code 
+Routing is simple
+middleware support
+
+
+
+How to use
+
+install Express
+create server
+start server

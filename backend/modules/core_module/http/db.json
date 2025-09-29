@@ -1,0 +1,8 @@
+{
+  "user": [
+    { "id": 1, "name": "sraddha", "role": "trainer" },
+    { "id": 2, "name": "kalyani", "role": "fron-end developer" },
+    { "id": 3, "name": "rupali", "role": "developer" }
+  ],
+  "product": []
+}
