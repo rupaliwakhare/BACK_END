@@ -54,6 +54,24 @@ app.put("/update/:id",(req,res)=>{
     writefile(data)
     res.send(data)
 })
+
+// delete 
+app.delete("/delete/:id", (req, res) => {
+    let data = getData();
+    const { id } = req.params;
+
+    const phoneIndex = data.phones.findIndex((el) => el.id == id);
+
+    if (phoneIndex === -1) {
+        return res.status(404).send({ message: "Phone not found" });
+    }
+
+    const deletedPhone = data.phones.splice(phoneIndex, 1)[0];
+    writefile(data);
+
+    res.send({ message: "Phone deleted successfully", deletedPhone });
+});
+
 // start server
 const PORT = process.env.PORT || 2808;
 app.listen(PORT, () => {
